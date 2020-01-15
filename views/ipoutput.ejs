@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <title>IPV4 ADDRESS DETAILS |EVALUATION SYSTEM| GEO IP</title> -->
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     
+    
+    <link rel="stylesheet" href="./css/design.css">
+</head>
+
+<body>
+     <h3 id="hip">IP DETAILS</h3>
+     <!-- <svg class="bar-chart"></svg> -->
+    <table>
+        <thead>
+            <tr>
+                <td>IP ATTRIBUTE</td>
+                <td>IP ATTRIBUTE-VALUE</td>
+            </tr>
+        </thead>
+        <tbody>
+                <% for( let [k,v] of Object.entries(JSON.parse(JSON.stringify( OBJ)))){ %>
+                    <tr>
+                        <%if(k!='_id' && v.length!=0 && k!='start_ip_int' && k!='end_ip_int'){%>
+                        <td id="ipa"> <%=k.toUpperCase()%></td>
+                        <td id="ipav"><%=v%></td>
+                        <%}%>
+                    </tr>        
+                   <%}%>
+           
+        </tbody>
+    </table>
+    
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="./js/applyd3.js"></script> -->
+</body>
