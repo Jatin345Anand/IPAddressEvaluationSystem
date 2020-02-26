@@ -13,7 +13,7 @@ app.use(express.static("public"));
 app.use(bodyparser.urlencoded({
     extended: false
 }));
-app.use(bodyparser.json());
+app.use(bodyparser.json()); 
 app.use(CORS);
 app.use("/", userRoute);
 app.set('view engine','ejs');
