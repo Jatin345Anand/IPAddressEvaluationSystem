@@ -57,6 +57,8 @@ const IPOPERATIONS = {
         var isAccess = false;
         console.log('In operation..', ip);
         var data = {};
+
+        // Asynch way  : forward function pass as argument  Parallelly
         IP.findOne({$and: [{ 'start_ip_int': { $lte : parseInt(ip) }}, { 'end_ip_int': { $gte : parseInt(ip) }}]},(e,d)=>{
                     if(e){
                         console.log(e);
@@ -68,6 +70,15 @@ const IPOPERATIONS = {
                     // data = d;    
                     res.render('ipoutput',{OBJ:d,IP:ip});
               });
+
+        // synch way : Wait for next util current complete
+        // var result  = await IP.findOne({$and: [{ 'start_ip_int': { $lte : parseInt(ip) }}, { 'end_ip_int': { $gte : parseInt(ip) }}]});
+        if(result != null){
+           console.log(result); 
+           res.render('ipoutput',{OBJ:d,IP:ip});
+        } else {
+            console.log(e);
+        }
         // // IP.find().forEach( function(myDoc) { ( "user: " + myDoc.start_ip_int ); } );
         // var i=0;
         // while(i<10){

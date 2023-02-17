@@ -1,4 +1,4 @@
 const config = {
-    dbURL : "mongodb://localhost:27017/ipevalsystemdb?poolSize=5"
+    dbURL : "mongodb://localhost:27017/ipevalsystemdb"
 }
 module.exports = config;
